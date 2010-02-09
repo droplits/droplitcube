@@ -1,0 +1,203 @@
+/* $Id: nice_menus_default.css,v 1.7 2009/02/09 00:19:36 add1sun Exp $ */
+/*
+  This is the default layout template for nice menus, and will provide
+  a starting point for the look of your menus. To customize, it's
+  recommended to create a custom CSS file using this file as a template,
+  then configure the module to use your custom CSS file
+  (this is done in the global settings tab of the theme administration.)
+
+  To help understand the CSS, the HTML looks like this, where
+    x is a number;
+    TYPE is down/left/right;
+    PATH is the menu path such as node/343;
+    MID is the menu id such as 33):
+  <ul id='nice-menu-x' class='nice-menu nice-menu-TYPE'>
+    <li id='menu-MID' class='menu-path-PATH'><a href='#'>This is a menu item</a></li>
+    <li class='menuparent menu-path-PATH'><a href='#'>A submenu</a>
+      <ul...><li...>...</li>
+      </ul>
+    </li>
+    ...
+  </ul>
+
+  If you have more than one nice-menu and want to target a particular one,
+  use its id (e.g. ul#nice-menu-2).
+
+  See README.txt and the handbook page (http://drupal.org/node/185543)
+  for some CSS customization examples.
+*/
+
+/******************************
+ Global CSS for ALL menu types
+******************************/
+
+ul.nice-menu,
+ul.nice-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.nice-menu li {
+  float: left; /* LTR */
+}
+
+/******************************
+ HORIZONTAL (down) menus
+******************************/
+
+ul.nice-menu-down {
+  float: left; /* LTR */
+  border: 0;
+}
+
+ul.nice-menu-down ul {
+  left: 0; /* LTR */
+}
+
+ul.nice-menu-down ul li {
+  clear: both;
+}
+
+
+
+
+
+
+#menu-387, #menu-388, #menu-389, #menu-390, #menu-391, #menu-392 {
+  margin-right: 10px;
+  background: transparent url(../../../../sites/mecadevelopment.droplits.net/themes/droplitmeca/images/meca-nav.png) no-repeat scroll 0 0;
+  text-indent: -1000px;
+}
+#menu-387 {
+  width: 75px;
+}
+
+#menu-388 {
+  width: 95px;
+  background-position: -85px top;
+}
+#menu-389 {
+  width: 95px;
+  background-position: -190px top;
+}
+#menu-390 {
+  width: 130px;
+  background-position: -295px top;
+}
+#menu-391 {
+  width: 95px;
+  background-position: -435px top;
+}
+#menu-392 {
+  width: 120px;
+  background-position: -540px top;
+  margin-right: 0;
+}
+
+ul.nice-menu {
+  line-height: 40px;
+}
+ul.nice-menu ul {
+  line-height: 40px;
+  -moz-box-shadow:2px 2px 3px #474747;
+}
+ul#nice-menu-0 ul li {
+
+}
+ul#nice-menu-0 ul li a {
+  line-height: 20px;
+  padding: 5px 10px;
+}
+ul.nice-menu a, ul.nice-menu li.menuparent a, ul.nice-menu li.menuparent:hover a {
+  padding:0;
+}
+
+
+ul.nice-menu a {
+  text-transform: uppercase;
+  font-size: 1.2em;
+}
+ul.nice-menu li ul li a {
+  text-transform: none;
+  font-size: 1em;
+}
+ul.nice-menu-down .menuparent a {
+
+}
+ul.nice-menu a {
+  display:block;
+}
+
+ul.nice-menu ul {
+  margin-right:0;
+  top:40px;
+  background-color:#a0a000;
+}
+
+ul.nice-menu-down li {
+  /* background-color:#CC0055; */
+  /* -moz-border-radius:4px; */
+  /* -webkit-border-radius:4px; */
+}
+ul.nice-menu-down li.menuparent {
+  /* background-color:#CC0055; */
+}
+ul.nice-menu-down li a {
+  color: #fbfbfb;
+}
+ul.nice-menu-down li#menu-387:hover {
+  background-position: 0 -40px;
+}
+ul.nice-menu-down li#menu-388:hover {
+  background-position: -85px -40px;
+}
+ul.nice-menu-down #menu-389:hover {
+  background-position: -190px -40px;
+}
+ul.nice-menu-down #menu-390:hover {
+  background-position: -295px -40px;
+}
+ul.nice-menu-down #menu-391:hover {
+  background-position: -435px -40px;
+}
+ul.nice-menu-down #menu-392:hover {
+  background-position: -540px -40px;
+}
+
+ul.nice-menu li a:hover,
+ul.nice-menu-down li.menuparent:hover a,
+ul.nice-menu-down li.over a {
+  /* background-color:#baba00; */
+  color: #fbfbfb;
+  /* -moz-border-radius:4px; */
+  /* -webkit-border-radius:4px; */
+}
+
+ul.nice-menu-down li.menuparent:hover a {
+  /* -moz-border-radius:4px 4px 0 0; */
+  /* -webkit-border-radius:4px 4px 0 0; */
+}
+ul.nice-menu-down li.menuparent:hover li a {
+  /* -moz-border-radius:0; */
+  /* -webkit-border-radius:0; */
+}
+
+
+ul.nice-menu-down .menuparent ul li a {
+  /* -moz-border-radius:0; */
+  /* -webkit-border-radius:0; */
+  text-indent: 0;
+  /* background-color:#baba00; */
+  color: #fbfbfb;
+  border-right: none;
+  width: 240px;
+}
+
+ul.nice-menu-down .menuparent ul li a:hover {
+  background-color:#333;
+}
+
+ul.nice-menu ul li, ul.nice-menu-down ul li {
+  border-bottom:none;
+}
