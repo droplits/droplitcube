@@ -5,8 +5,8 @@
 <div <?php if (!empty($attr)) print drupal_attributes($attr) ?>>
 
   <?php if ($layout): ?>
-    <div class='column-main'><div class='column-wrapper'>
-    <div class="developer">DROPLITCUBE NODE.TPL.PHP<br />column-main</div>
+    <div class='<?php print $hook ?>-main <?php print $node_classes ?>'><div class='<?php print $hook ?>-wrapper'>
+    <div class="developer-node">DROPLITCUBE NODE.TPL.PHP<br />column-main</div>
   <?php endif; ?>
 
   <?php if ($page == 0): ?>
@@ -22,16 +22,14 @@
   
 
   <?php if ($layout && !empty($submitted) || !empty($links)): ?>
-    <div class='column-side'><div class='column-wrapper'>
-    <div class="developer">column-side</div>
+    <div class='node-submitted'><div class='node-submitted-wrapper'>
+    <div class="developer-node">column-side</div>
   <?php endif; ?>
 
   <?php if (!empty($submitted)): ?>
     <div class='<?php print $hook ?>-submitted clear-block'><?php print $submitted ?></div>
   <?php endif; ?>
-  <?php if (!empty($links)): ?>
-    <div class='<?php print $hook ?>-links clear-block'><?php print $links ?></div>
-  <?php endif; ?>
+
   <?php if ($terms): ?>
     <div class="terms"><?php print $terms ?></div>
   <?php endif;?>
@@ -42,9 +40,12 @@
   
   <?php if (!empty($content)): ?>
     <div class='<?php print $hook ?>-content clear-block <?php if (!empty($is_prose)) print 'prose' ?>'>
-    <div class="developer">content</div>
+    <div class="developer-node">content</div>
       <?php print $content ?>
     </div>
+    <?php if (!empty($links)): ?>
+      <div class='<?php print $hook ?>-links clear-block'><?php print $links ?></div>
+    <?php endif; ?>
   <?php endif; ?>
 
   <?php if ($layout): ?>

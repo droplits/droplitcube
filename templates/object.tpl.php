@@ -5,6 +5,7 @@
 <div <?php if (!empty($attr)) print drupal_attributes($attr) ?>>
   <?php if ($layout && !empty($submitted) || !empty($links)): ?>
     <div class='column-side'><div class='column-wrapper'>
+    <div class="developer">OBEJECT.TPL.PHP column-side</div>
   <?php endif; ?>
 
   <?php if (!empty($submitted)): ?>
@@ -20,6 +21,7 @@
 
   <?php if ($layout): ?>
     <div class='column-main'><div class='column-wrapper'>
+    <div class="developer">DROPLITCUBE OBEJECT.TPL.PHP<br />column-main</div>
   <?php endif; ?>
 
   <?php if (!empty($title)): ?>
@@ -31,7 +33,9 @@
 
   <?php if (!empty($content)): ?>
     <div class='<?php print $hook ?>-content clear-block <?php if (!empty($is_prose)) print 'prose' ?>'>
+      <div class='<?php print $hook ?>-wrapper'>
       <?php print $content ?>
+      </div>
     </div>
     <?php print $edit_links; ?>  
   <?php endif; ?>

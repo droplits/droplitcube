@@ -1,0 +1,113 @@
+/* Superfish Default skin */
+#superfish {background: transparent; width: 100%; height: 30px;}
+#superfish h2 {
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+}
+#superfish .menu {
+  float: right;
+  margin: 0;
+}
+#superfish .menu a {
+  padding: 5px 12px 5px;
+  text-decoration:none;
+}
+#superfish .menu a, 
+#superfish .menu a:visited  { 
+  color: #0088FF;
+  font-weight:bold;
+  /* font-size:13px; */
+  text-transform:uppercase;
+}
+#superfish .menu li {
+
+}
+
+#superfish ul.menu li {
+  margin:0 0 0 10px;
+}
+
+#superfish ul.menu li a {
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  -moz-box-shadow:0 0 3px #DDDDDD;
+  -webkit-box-shadow:0 0 3px #DDDDDD;
+  border-color:#FFFFFF;
+  border-style:solid;
+  border-width:3px;
+  background:url("../../images/bleeds.png") repeat-x scroll 0 -48px #F4F4F4;
+  color:#999999;
+}
+#superfish ul.menu li li {
+  margin:0;
+}
+#superfish ul.menu li li a {
+  -moz-border-radius:0;
+  -webkit-border-radius:0;
+  -moz-box-shadow:0 0 0 transparent;
+  -webkit-box-shadow:0 0 0 transparent;
+  border-color:transparent;
+  border-style:none;
+  border-width:0;
+}
+
+#superfish ul.menu li:hover {
+  
+}
+#superfish ul.menu li a:hover {
+  color:#333333;
+  -moz-border-radius:10px 10px 0 0;
+  -webkit-border-radius:10px 10px 0 0;
+}
+
+
+#superfish ul.menu li ul {
+  border:3px solid #FFF;
+  -moz-box-shadow:0 0 5px #DDDDDD;
+  -webkit-box-shadow:0 0 5px #DDDDDD;
+}
+#superfish ul.menu li li {
+
+}
+
+#superfish ul.menu li:hover li {
+  
+}
+#superfish ul.menu li li a:hover {
+  color:#FFFFFF;
+}
+
+#superfish ul.menu li li:hover {
+  background: transparent url(../../images/trans-black-85.png) repeat;
+}
+
+
+
+
+
+#superfish .menu li li {
+
+}
+#superfish .menu li li a, 
+#superfish .menu li li a:visited  { 
+  color: #FFFFFF;
+  background:transparent url(../../images/trans-black-80.png) repeat;
+  -moz-border-radius:0;
+  -webkit-border-radius:0;
+  -moz-box-shadow:0 0 0 #FFF;
+  -webkit-box-shadow:0 0 0 #FFF;
+}
+
+
+#superfish .menu li li li {
+
+}
+#superfish .menu li:hover, 
+#superfish .menu li.sfHover,
+#superfish .menu a:focus, 
+#superfish .menu a:hover, 
+#superfish .menu a:active,
+#superfish .menu a.active {
+  outline: 0;
+}

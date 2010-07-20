@@ -1,22 +1,70 @@
 ; $Id$
 name = "DroplitCube"
 description = "Spaces-aware front-end theme based on DroplitRubik."
-base theme = "rubik"
+base theme = "tao"
 core = "6.x"
 engine = "phptemplate"
 
+stylesheets[screen][] = "reset.css"
+stylesheets[screen][] = "core.css"
+stylesheets[screen][] = "base.css"
+stylesheets[print][] = "core.css"
+stylesheets[print][] = "reset.css"
+stylesheets[print][] = "base.css"
+stylesheets[print][] = "print.css"
+
+; stylesheets[screen][] = "droplitcube.css"
+; stylesheets[screen][] = "newstyle.css"
+stylesheets[screen][] = "960_24_col.css"
 stylesheets[screen][] = "style.css"
-stylesheets[screen][] = "droplitcube.css"
-stylesheets[screen][] = "newstyle.css"
+
+; This is from the fusion theme. Likely will remove
+; stylesheets[all][] = css/typography.css
+; stylesheets[all][] = css/superfish.css
+; stylesheets[all][] = css/superfish-navbar.css
+; stylesheets[all][] = css/superfish-vertical.css
 
 ; This is from the blueprint theme
 ; scripts[] = js/general.js
 
+stylesheets[all][] = "sf/css/superfish.css"
+stylesheets[all][] = "sf/css/theme.css"
+scripts[] = "sf/js/superfish.js"
+; This is for automatic image captions taken from CD scripts[] = "l00mz0rs.js"
+
+; This is from the fusion theme. Likely will remove
+; scripts[] = js/jquery.bgiframe.min.js
+; scripts[] = js/hoverIntent.js
+; scripts[] = js/supposition.js
+; scripts[] = js/supersubs.js
+; scripts[] = js/superfish.js
+; scripts[] = js/screenshot.js
+; scripts[] = js/script.js
+
+; regions[sidebar_first] = sidebar first
+; regions[sidebar_last] = sidebar last
+; regions[header_top] = header top
+; regions[header] = header
+; regions[preface_top] = preface top
+; regions[preface_bottom] = preface bottom
+; regions[content_top] = content top
+; regions[content] = content
+; regions[content_bottom] = content bottom
+; regions[postscript_top] = postscript top
+; regions[postscript_bottom] = postscript bottom
+; regions[footer] = footer
+; regions[node_top] = node top
+; regions[node_bottom] = node bottom
+
 ; Regions
-regions[header] = "Header"
-regions[content] = "Content"
-regions[left] = "Left"
-regions[right] = "Right"
+regions[header_top] = Header Top
+regions[header] = Header
+regions[content_top] = Content Top
+regions[content] = Content
+regions[content_bottom] = Content Bottom
+regions[left] = Left
+regions[right] = Right
+regions[footer] = Footer
 
 ; DesignKit
 designkit[color][background] = "#000000"
@@ -33,7 +81,9 @@ layouts[sidebar][name] = "Sidebar"
 layouts[sidebar][description] = "Main content with sidebar."
 layouts[sidebar][stylesheet] = "layout-sidebar.css"
 layouts[sidebar][template] = "layout-sidebar"
+layouts[sidebar][regions][] = "content_top"
 layouts[sidebar][regions][] = "content"
+layouts[sidebar][regions][] = "content_bottom"
 layouts[sidebar][regions][] = "right"
 
 ; 1/1
@@ -41,7 +91,9 @@ layouts[split][name] = "Split"
 layouts[split][description] = "50/50 split."
 layouts[split][stylesheet] = "layout-split.css"
 layouts[split][template] = "layout-sidebar"
+layouts[split][regions][] = "content_top"
 layouts[split][regions][] = "content"
+layouts[split][regions][] = "content_bottom"
 layouts[split][regions][] = "right"
 
 ; 1/1/1
@@ -50,7 +102,9 @@ layouts[columns][description] = "Three column layout."
 layouts[columns][stylesheet] = "layout-columns.css"
 layouts[columns][template] = "layout-columns"
 layouts[columns][regions][] = "header"
+layouts[columns][regions][] = "content_top"
 layouts[columns][regions][] = "content"
+layouts[columns][regions][] = "content_bottom"
 layouts[columns][regions][] = "left"
 layouts[columns][regions][] = "right"
 
@@ -60,9 +114,123 @@ layouts[offset][description] = "Main content with two offset sidebars."
 layouts[offset][stylesheet] = "layout-offset.css"
 layouts[offset][template] = "layout-offset"
 layouts[offset][regions][] = "header"
+layouts[offset][regions][] = "content_top"
 layouts[offset][regions][] = "content"
+layouts[offset][regions][] = "content_bottom"
 layouts[offset][regions][] = "left"
 layouts[offset][regions][] = "right"
+
+
+
+
+
+
+
+; Block positioning
+skinr[droplit-alignment][title] = Block position
+skinr[droplit-alignment][type] = select
+skinr[droplit-alignment][description] = Change the position of this block (default is to float to the left)
+skinr[droplit-alignment][features][] = block
+skinr[droplit-alignment][options][1][label] = Float block to the right
+skinr[droplit-alignment][options][1][class] = droplit-right
+skinr[droplit-alignment][options][2][label] = Position block in the center
+skinr[droplit-alignment][options][2][class] = droplit-center
+skinr[droplit-alignment][options][3][label] = Clear floats (block drops to a new line)
+skinr[droplit-alignment][options][3][class] = droplit-clear
+
+; Content alignment
+skinr[droplit-content-alignment][title] = Content alignment
+skinr[droplit-content-alignment][type] = select
+skinr[droplit-content-alignment][description] = Default is left aligned content
+skinr[droplit-content-alignment][options][1][label] = Center align content within its container
+skinr[droplit-content-alignment][options][1][class] = droplit-center-content
+skinr[droplit-content-alignment][options][2][label] = Right align content within its container
+skinr[droplit-content-alignment][options][2][class] = droplit-right-content
+
+; General styles
+skinr[droplit-general-styles][title] = General styles
+skinr[droplit-general-styles][type] = checkboxes
+skinr[droplit-general-styles][description] = These are some generally useful options for blocks
+skinr[droplit-general-styles][features][] = block
+skinr[droplit-general-styles][features][] = panels_pane
+skinr[droplit-general-styles][options][1][label] = <span class="preview-text">Text: large, bold callout style <span class="preview-icon" id="droplit-general-styles-droplit-callout"></span></span>
+skinr[droplit-general-styles][options][1][class] = droplit-callout
+skinr[droplit-general-styles][options][2][label] = <span class="preview-text">Links: bold all links <span class="preview-icon" id="droplit-general-styles-bold-links"></span></span>
+skinr[droplit-general-styles][options][2][class] = droplit-bold-links
+skinr[droplit-general-styles][options][3][label] = <span class="preview-text">Padding: add 30px extra padding inside block <span class="preview-icon" id="droplit-general-styles-droplit-padding"></span></span>
+skinr[droplit-general-styles][options][3][class] = droplit-padding
+skinr[droplit-general-styles][options][4][label] = <span class="preview-text">Border: add 1px border and 10px padding <span class="preview-icon" id="droplit-general-styles-droplit-border"></span></span>
+skinr[droplit-general-styles][options][4][class] = droplit-border
+
+; General style - Equal heights
+skinr[droplit-equal-heights][title] = Equal heights
+skinr[droplit-equal-heights][type] = checkboxes
+skinr[droplit-equal-heights][description] = Make blocks in a region the same height
+skinr[droplit-equal-heights][features][] = block
+skinr[droplit-equal-heights][features][] = panels_pane
+skinr[droplit-equal-heights][scripts][] = js/jquery.equalheights.js
+skinr[droplit-equal-heights][options][1][label] = <span class="preview-text">Equal heights: equalize the heights of blocks with this style in the same region <span class="preview-icon" id="droplit-general-styles-equal-heights"></span></span>
+skinr[droplit-equal-heights][options][1][class] = equal-heights
+
+; List styles
+skinr[droplit-multicol][title] = List columns
+skinr[droplit-multicol][type] = select
+skinr[droplit-multicol][description] = Put items in lists (menus, list views, etc.) in multiple columns
+skinr[droplit-multicol][features][] = block
+skinr[droplit-multicol][features][] = panels_pane
+skinr[droplit-multicol][features][] = views_view
+skinr[droplit-multicol][options][1][label] = 2-column list/menu (50%/50%)
+skinr[droplit-multicol][options][1][class] = droplit-2-col-list clearfix
+skinr[droplit-multicol][options][2][label] = 3-column list/menu (33%/33%/33%)
+skinr[droplit-multicol][options][2][class] = droplit-3-col-list clearfix
+
+; Additional menu styles
+skinr[droplit-menu][title] = Menu layout
+skinr[droplit-menu][type] = radios
+skinr[droplit-menu][description] = Different layouts and alignment options for your menus
+skinr[droplit-menu][features][] = block
+skinr[droplit-menu][features][] = panels_pane
+skinr[droplit-menu][options][1][label] = <span class="preview-text">Single line menu with separators <span class="preview-icon" id="droplit-menu-droplit-inline-menu"></span></span>
+skinr[droplit-menu][options][1][class] = droplit-inline-menu
+skinr[droplit-menu][options][2][label] = <span class="preview-text">Multi-column menu with bold headers (set menu items to Expanded) <span class="preview-icon" id="droplit-menu-droplit-multicol-menu"></span></span>
+skinr[droplit-menu][options][2][class] = droplit-multicol-menu clearfix
+
+; Stackable list/menu styles
+skinr[droplit-list-styles][title] = List/menu styles
+skinr[droplit-list-styles][type] = checkboxes
+skinr[droplit-list-styles][features][] = block
+skinr[droplit-list-styles][features][] = panels_pane
+skinr[droplit-list-styles][features][] = views_view
+skinr[droplit-list-styles][options][1][label] = <span class="preview-text">Bottom border (no bullets) <span class="preview-icon" id="list-styles-bottom-border"></span></span>
+skinr[droplit-list-styles][options][1][class] = droplit-list-bottom-border
+skinr[droplit-list-styles][options][2][label] = <span class="preview-text">Extra vertical spacing (no bullets) <span class="preview-icon" id="list-styles-extra-vertical-spacing"></span></span>
+skinr[droplit-list-styles][options][2][class] = droplit-list-vertical-spacing
+
+; Superfish menu styles
+skinr[droplit-superfish][title] = Superfish menu styles
+skinr[droplit-superfish][type] = radios
+skinr[droplit-superfish][description] = Superfish dropdown menus (must also set menu items to Expanded)
+skinr[droplit-superfish][features][] = block
+;skinr[droplit-superfish][options][1][label] = Standard horizontal menu with dropdowns
+;skinr[droplit-superfish][options][1][class] = superfish
+skinr[droplit-superfish][options][2][label] = <span class="preview-text">Vertical menu (for sidebar blocks) <span class="preview-icon" id="droplit-superfish-superfish-vertical"></span></span>
+skinr[droplit-superfish][options][2][class] = superfish superfish-vertical
+
+; Image styles
+skinr[droplit-float-imagefield][title] = Image floating styles
+skinr[droplit-float-imagefield][type] = select
+skinr[droplit-float-imagefield][description] = These options will float ImageField images in content to the left or right and add margins
+skinr[droplit-float-imagefield][features][] = block
+skinr[droplit-float-imagefield][features][] = node
+skinr[droplit-float-imagefield][features][] = views_view
+skinr[droplit-float-imagefield][options][1][label] = Float ImageField left
+skinr[droplit-float-imagefield][options][1][class] = droplit-float-imagefield-left
+skinr[droplit-float-imagefield][options][2][label] = Float ImageField right
+skinr[droplit-float-imagefield][options][2][class] = droplit-float-imagefield-right
+
+
+
+
 
 ; Set the default settings to be used in theme-settings.php
 settings[droplitcube_block_edit_links]        = 1

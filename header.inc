@@ -6,7 +6,7 @@
     <title><?php print $head_title ?></title>
   </head>
   <body <?php print drupal_attributes($attr) ?>>
-
+  <div class="container_24 <?php print $skinr; ?>">
   <?php if ($help): ?>
   <div id='page-help'><div class='limiter clear-block'>
     <?php if ($help_toggler) print $help_toggler ?>
@@ -14,34 +14,62 @@
   </div></div>
   <?php endif; ?>
 
-  <div id='page-header'><div class='limiter clear-block'>
-    <?php if ($breadcrumb): ?>
-    <div id='branding' class='limiter-left clear-block'>
-      <div class='breadcrumb clear-block'><?php print $breadcrumb ?></div>
-    </div>
-    <?php endif; ?>
+  <div id='page-header' class='clear-block'><div class='page-header-wrapper'>
     <?php if ($user_links): ?>
     <div id='user-links' class='limiter-right clear-block'>
       <?php if ($user_links) print theme('links', $user_links) ?>
     </div>
     <?php endif; ?>
-      <h1 id="logo">
-        <?php print $logo_block; ?>
-      </h1>
-
+    <?php if ($logo || $site_name || $site_slogan): ?>
+      <div id="header-site-info" class="header-site-info block">
+      <div id="header-site-info-inner" class="header-site-info-inner inner">
+      <?php if ($logo): ?>
+        <div id="logo">
+          <a href="<?php print check_url($front_page); ?>" title="<?php print t('Home'); ?>"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
+        </div>
+      <?php endif; ?>
+      <?php if ($site_name): ?>
+        <span id="site-name" class="developer"><a href="<?php print check_url($front_page); ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a></span>
+      <?php endif; ?>
+      <?php if ($site_slogan): ?>
+        <span id="slogan"><?php print $site_slogan; ?></span>
+      <?php endif; ?>
+      </div><!-- /header-site-info-inner -->
+      </div><!-- /header-site-info -->
+    <?php endif; ?>
   </div></div>
 
-  <?php if ($tabs): ?>
-    <div id='tabs' class='limiter clear-block'>
-      <div class='page-tabs limiter clear-block'><?php print $tabs ?></div>
-      <?php if ($tabs2): ?><div class='page-tabs limiter clear-block'><?php print $tabs2 ?></div><?php endif; ?>
-    </div>
-  <?php endif; ?>
+    <?php /* if ($help_toggler && $primary_links): */ ?>
+    <!-- <div id='primary-links' class='limiter clear-block'> -->
+      <?php /* if ($help_toggler) print $help_toggler */ ?>
+      <?php /* if ($primary_links) print theme('links', $primary_links) */ ?>
+    <!-- </div> -->
+    <?php /* endif; */ ?>
 
-    <?php if ($help_toggler && $primary_links): ?>
-    <div id='primary-links' class='limiter clear-block'>
-      <!--<?php if ($help_toggler) print $help_toggler ?>-->
-      <?php if ($primary_links) print theme('links', $primary_links) ?>
+    
+    <?php if (isset($primary_links)) : ?>
+      <div id="superfish">
+      <?php print $primary_menu; ?>
+      </div>
+    <?php endif; ?>
+
+
+    <?php if ($breadcrumb): ?>
+    <div id='branding' class='limiter-left clear-block'>
+      <div class='breadcrumb clear-block'><?php print $breadcrumb ?></div>
+    </div>
+    <?php endif; ?>
+    
+    <?php if ($tabs): ?>
+    <div id='tabs' class='clear-block'>
+      <div class='page-tabs clear-block'>
+        <?php print $tabs ?>
+      </div>
+      <?php if ($tabs2): ?>
+      <div class='page-tabs clear-block'>
+        <?php print $tabs2 ?>
+      </div>
+      <?php endif; ?>
     </div>
     <?php endif; ?>
 

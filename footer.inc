@@ -8,6 +8,7 @@
     <?php if ($footer_message): ?><div class='footer-message'><?php print $footer_message ?></div><?php endif; ?>
   </div>
 
+  </div>
   <?php print $scripts ?>
   <?php print $closure; ?>
   
